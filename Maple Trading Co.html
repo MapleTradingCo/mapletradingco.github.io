@@ -1,0 +1,369 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Maple Trading Co.</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: sticky white nav with brand block, full-bleed brand-gradient hero, tagline strip,
+   quick-link tiles, divider, "Featured" card rail, then about + Instagram + footer. */
+:root {
+  --bg: #f5f7f9;
+  --surface: #ffffff;
+  --fg: #1c2530;
+  --muted: #566370;
+  --line: #d8dfe5;
+  --leaf: #e8512f;
+  --blue: #2a5fa8;
+  --blue-text: #2a5fa8;
+  --orange: #fbb06f;
+  --ink: #0b0b0b;
+  --hero-a: #b6c8d7;
+  --hero-b: #cdd1d5;
+  --hero-fg: #0b0b0b;
+  --hero-art: #8b9db0;
+  --tile: #eef2f5;
+  --display: "Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
+  --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11161b; --surface: #1a2129; --fg: #edf1f4; --muted: #9aa8b4; --line: #2a3541;
+    --leaf: #ee6a47; --blue-text: #8db4ee; --hero-a: #26323e; --hero-b: #38434e;
+    --hero-fg: #f3f6f8; --hero-art: #4b5c6d; --tile: #222b35;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11161b; --surface: #1a2129; --fg: #edf1f4; --muted: #9aa8b4; --line: #2a3541;
+  --leaf: #ee6a47; --blue-text: #8db4ee; --hero-a: #26323e; --hero-b: #38434e;
+  --hero-fg: #f3f6f8; --hero-art: #4b5c6d; --tile: #222b35;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body {
+  background: var(--bg); color: var(--fg);
+  font: 400 16px/1.55 var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  background: var(--surface); z-index: 20;
+}
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 3px solid var(--blue-text); outline-offset: 3px; border-radius: 8px; }
+
+/* full-bleed bands: cancel the body gutter, restore it on inner wrappers */
+.band { margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))) calc(-1 * max(16px, env(safe-area-inset-right, 0px))); }
+.wrap {
+  max-width: 1120px; margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* NAV */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 15; background: var(--surface); border-bottom: 1px solid var(--line); }
+.nav-in { display: flex; align-items: center; gap: 28px; min-height: 64px; }
+.brand {
+  display: flex; align-items: center; gap: 10px; align-self: stretch;
+  background: var(--leaf); color: #fff; padding: 0 18px;
+  font: 800 1.05rem/1 var(--display); letter-spacing: -.01em; white-space: nowrap;
+}
+.brand svg { width: 24px; height: 24px; fill: #fff; flex: none; }
+.nav-links { display: flex; gap: 22px; min-width: 0; }
+.nav-links a { display: inline-flex; align-items: center; gap: 7px; font-weight: 600; font-size: .95rem; }
+.nav-links svg { width: 17px; height: 17px; fill: var(--leaf); }
+.nav-links a:hover { color: var(--leaf); }
+.nav-cta {
+  margin-left: auto; border: 2px solid var(--leaf); color: var(--leaf); border-radius: 999px;
+  padding: 7px 16px; font-weight: 700; font-size: .9rem; display: inline-flex; gap: 8px; align-items: center; white-space: nowrap;
+}
+.nav-cta svg { width: 16px; height: 16px; fill: currentColor; }
+.nav-cta:hover { background: var(--leaf); color: #fff; }
+.nav .wrap { padding-left: 0; padding-right: max(16px, env(safe-area-inset-right, 0px)); max-width: none; }
+
+/* HERO */
+.hero {
+  position: relative; overflow: hidden; isolation: isolate;
+  background: radial-gradient(120% 140% at 15% 0%, var(--hero-a), var(--hero-b));
+  padding-block: clamp(56px, 9vw, 120px) clamp(40px, 6vw, 72px);
+}
+.hero-art { position: absolute; right: max(2%, 0px); top: 50%; translate: 0 -54%; width: min(34vw, 420px); z-index: -1; fill: var(--hero-art); }
+.hero h1 { margin: 0; text-align: center; font-family: var(--display); font-weight: 800; letter-spacing: -.02em; line-height: .98; }
+.hero .sub { display: block; color: var(--hero-fg); font-size: clamp(2rem, 6.4vw, 4.6rem); text-wrap: balance; }
+.hero .main {
+  display: block; margin-top: .06em; color: var(--orange);
+  font-size: clamp(2.9rem, 11.2vw, 8.4rem);
+  -webkit-text-stroke: .11em var(--blue); paint-order: stroke fill;
+  filter: drop-shadow(0 .055em 0 var(--ink)); text-wrap: balance;
+}
+.hero-pill {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  width: fit-content; max-width: 100%; margin: clamp(32px, 5vw, 64px) auto 0;
+  background: #fff; color: #2f3338; padding: 14px 34px; border-radius: 999px;
+  font: 800 clamp(1.15rem, 3.2vw, 1.9rem)/1 var(--display); letter-spacing: -.01em;
+}
+.hero-pill svg { width: 1.35em; height: 1.35em; fill: var(--leaf); flex: none; }
+:root[data-theme="dark"] .hero-pill { background: var(--surface); color: var(--fg); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hero-pill { background: var(--surface); color: var(--fg); } }
+
+/* TAGLINE STRIP */
+.strip { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; padding-block: 36px 8px; }
+.strip h2 { margin: 0; font: 700 clamp(1.35rem, 3vw, 1.9rem)/1.2 var(--display); max-width: 30ch; text-wrap: balance; }
+.handle { display: flex; align-items: center; gap: 12px; font-size: .85rem; color: var(--muted); }
+.handle b { display: block; color: var(--fg); font-size: 1rem; font-family: var(--display); }
+.handle .leaf-badge { width: 52px; height: 52px; border-radius: 12px; background: var(--leaf); display: grid; place-items: center; flex: none; }
+.handle .leaf-badge svg { width: 30px; height: 30px; fill: #fff; }
+
+/* TILES */
+.tiles { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; padding-block: 30px 36px; border-bottom: 1px solid var(--line); }
+.tile { width: 88px; display: grid; justify-items: center; gap: 8px; font-size: .8rem; font-weight: 600; color: var(--muted); }
+.tile i { width: 60px; height: 60px; border-radius: 14px; display: grid; place-items: center; background: var(--tile); border: 2px solid transparent; transition: transform .15s, border-color .15s; }
+.tile i svg { width: 28px; height: 28px; }
+.tile:hover i { transform: translateY(-3px); border-color: var(--blue); }
+.tile.t-buy i { background: var(--orange); }
+.tile.t-buy svg { fill: #23324a; }
+.tile.t-sell i { background: var(--blue); }
+.tile.t-sell svg { fill: #fff; }
+.tile.t-trade i { background: var(--leaf); }
+.tile.t-trade svg { fill: #fff; }
+.tile.t-ig i { background: linear-gradient(135deg, #f58529, #dd2a7b 55%, #8134af); }
+.tile.t-ig svg { fill: #fff; }
+
+/* FEATURED RAIL */
+.section-title { font: 800 clamp(1.5rem, 3vw, 2rem)/1.1 var(--display); margin: 0 0 22px; letter-spacing: -.01em; }
+.featured { padding-block: 44px 20px; }
+.rail-wrap { position: relative; }
+.rail { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 2px 18px; scrollbar-width: thin; }
+.card {
+  flex: 0 0 min(264px, 78vw); scroll-snap-align: start; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; min-width: 0;
+  transition: box-shadow .2s, transform .2s;
+}
+.card:hover { box-shadow: 0 10px 28px rgba(20, 40, 70, .16); transform: translateY(-2px); }
+.card .art { height: 150px; display: grid; place-items: center; overflow: hidden; }
+.card .art svg { height: 130px; width: auto; }
+.a1 { background: linear-gradient(135deg, #fbb06f, #f4895a); }
+.a2 { background: linear-gradient(135deg, #3f78c4, #1f4a86); }
+.a3 { background: linear-gradient(135deg, #f0623f, #c9391b); }
+.a4 { background: linear-gradient(135deg, #f58529, #dd2a7b 55%, #8134af); }
+.a5 { background: linear-gradient(135deg, #9fb4c6, #6f879d); }
+.card .body { padding: 18px 18px 16px; display: flex; flex-direction: column; flex: 1; gap: 14px; }
+.card h3 { margin: 0; font: 700 1.1rem/1.3 var(--display); min-height: 2.6em; }
+.card p { margin: 0; color: var(--muted); font-size: .92rem; }
+.badge { align-self: flex-start; margin-top: auto; background: var(--blue); color: #fff; border-radius: 999px; padding: 3px 12px; font-size: .78rem; font-weight: 700; }
+.badge.hot { background: var(--leaf); }
+.cat { border-left: 2px solid var(--leaf); padding-left: 8px; font-size: .88rem; color: var(--muted); }
+.cat.b { border-color: var(--blue); }
+.rail-next {
+  position: absolute; right: 0; top: 0; bottom: 18px; width: 68px; border: 0; cursor: pointer;
+  background: rgba(60, 66, 72, .72); color: #fff; display: grid; place-items: center; border-radius: 12px 0 0 12px;
+}
+.rail-next svg { width: 28px; height: 28px; fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.rail-next[hidden] { display: none !important; }
+
+/* ABOUT */
+.about { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 64px; padding-block: 56px; align-items: start; }
+.about > * { min-width: 0; }
+.about p { margin: 0 0 1em; color: var(--muted); max-width: 62ch; }
+.about p:first-of-type { color: var(--fg); font-size: 1.12rem; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.steps li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+.steps .ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; }
+.steps .ic svg { width: 22px; height: 22px; }
+.steps b { display: block; font-family: var(--display); font-size: 1.02rem; }
+.steps span { color: var(--muted); font-size: .92rem; }
+
+/* FOLLOW */
+.follow { background: linear-gradient(120deg, var(--hero-a), var(--hero-b)); }
+.follow-in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px 40px; padding-block: 52px; }
+.follow h2 { margin: 0 0 6px; font: 800 clamp(1.6rem, 4vw, 2.5rem)/1.1 var(--display); color: var(--hero-fg); }
+.follow p { margin: 0; color: var(--hero-fg); opacity: .8; max-width: 44ch; }
+.follow-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btn { display: inline-flex; align-items: center; gap: 10px; border-radius: 999px; padding: 14px 26px; font: 700 1rem/1 var(--body); border: 0; cursor: pointer; }
+.btn svg { width: 20px; height: 20px; fill: currentColor; }
+.btn.primary { background: var(--leaf); color: #fff; }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn.ghost { background: #fff; color: #2f3338; }
+:root[data-theme="dark"] .btn.ghost { background: var(--surface); color: var(--fg); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn.ghost { background: var(--surface); color: var(--fg); } }
+
+/* FOOTER */
+.foot { padding-block: 36px 48px; color: var(--muted); font-size: .85rem; display: grid; gap: 10px; }
+.foot .row { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; align-items: center; }
+.foot strong { color: var(--fg); font-family: var(--display); }
+.foot small { font-size: .78rem; max-width: 90ch; }
+
+@media (max-width: 860px) {
+  .about { grid-template-columns: 1fr; padding-block: 40px; }
+  .hero-art { opacity: .6; width: 62vw; right: -12vw; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .nav-in { gap: 12px; }
+  .brand { padding: 0 14px; font-size: .95rem; }
+  .rail-next { width: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .card, .tile i { transition: none; }
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="leaf" viewBox="0 0 24 24"><path d="M12 1.5l2 4 3-1.4-1 4.6 4-2-1.1 3.7 3.1.7-4 3.4.6 1.6-5.7-.8V22.5h-1.8v-6.7l-5.7.8.6-1.6-4-3.4 3.1-.7L4 6.7l4 2-1-4.6 3 1.4 2-4z"/></symbol>
+    <symbol id="ig" viewBox="0 0 24 24"><path d="M7.5 2h9A5.5 5.5 0 0122 7.5v9a5.5 5.5 0 01-5.5 5.5h-9A5.5 5.5 0 012 16.5v-9A5.5 5.5 0 017.5 2zm0 2A3.5 3.5 0 004 7.5v9A3.5 3.5 0 007.5 20h9a3.5 3.5 0 003.5-3.5v-9A3.5 3.5 0 0016.5 4h-9zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6zm5.3-3.2a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"/></symbol>
+    <symbol id="compass" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 2a8 8 0 110 16 8 8 0 010-16zm4.2 3.8l-2.6 5.8-5.8 2.6 2.6-5.8 5.8-2.6zM12 11a1 1 0 100 2 1 1 0 000-2z"/></symbol>
+    <symbol id="bag" viewBox="0 0 24 24"><path d="M7 7V6a5 5 0 0110 0v1h3l1 15H3L4 7h3zm2 0h6V6a3 3 0 00-6 0v1zm-1 3v2h2v-2H8zm6 0v2h2v-2h-2z"/></symbol>
+    <symbol id="help" viewBox="0 0 24 24"><path d="M12 1.5l9 3v7c0 5.2-3.6 9.3-9 11-5.4-1.7-9-5.8-9-11v-7l9-3zm-1 14v2h2v-2h-2zm1-9a3.5 3.5 0 00-3.5 3.5h2a1.5 1.5 0 113 0c0 1.5-2.5 1.6-2.5 4h2c0-1.5 2.5-1.8 2.5-4A3.5 3.5 0 0012 6.5z"/></symbol>
+    <symbol id="tag" viewBox="0 0 24 24"><path d="M3 3h8.6L21 12.4 12.4 21 3 11.6V3zm4.5 2.5a2 2 0 100 4 2 2 0 000-4z"/></symbol>
+    <symbol id="cash" viewBox="0 0 24 24"><path d="M2 6h20v12H2V6zm10 2.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zM4.5 8.5v2a2 2 0 002-2h-2zm15 0h-2a2 2 0 002 2v-2zm-15 5v2h2a2 2 0 00-2-2zm15 0a2 2 0 00-2 2h2v-2z"/></symbol>
+    <symbol id="swap" viewBox="0 0 24 24"><path d="M7 3l-5 5h3.5v7h3V8H12L7 3zm10 18l5-5h-3.5V9h-3v7H12l5 5z"/></symbol>
+    <symbol id="chat" viewBox="0 0 24 24"><path d="M4 3h16a2 2 0 012 2v11a2 2 0 01-2 2H9l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2z"/></symbol>
+    <symbol id="cardshape" viewBox="0 0 100 140"><rect x="3" y="3" width="94" height="134" rx="9" fill="rgba(255,255,255,.92)"/><rect x="12" y="12" width="76" height="12" rx="4" fill="rgba(0,0,0,.14)"/><rect x="12" y="30" width="76" height="62" rx="5" fill="rgba(0,0,0,.2)"/><use href="#leaf" x="34" y="44" width="32" height="32" fill="#fff"/><rect x="12" y="100" width="76" height="5" rx="2.5" fill="rgba(0,0,0,.14)"/><rect x="12" y="110" width="58" height="5" rx="2.5" fill="rgba(0,0,0,.14)"/><rect x="12" y="120" width="40" height="5" rx="2.5" fill="rgba(0,0,0,.14)"/></symbol>
+  </defs>
+</svg>
+
+<header class="band nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="Maple Trading Co. home"><svg><use href="#leaf"/></svg>Maple Trading Co.</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#about"><svg><use href="#compass"/></svg>About</a>
+      <a href="#featured"><svg><use href="#bag"/></svg>What we do</a>
+      <a href="#follow"><svg><use href="#help"/></svg>Contact</a>
+    </nav>
+    <a class="nav-cta" href="https://www.instagram.com/mapletrading.co/" target="_blank" rel="noopener"><svg><use href="#ig"/></svg>Follow</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="band hero" aria-labelledby="hero-title">
+    <svg class="hero-art" viewBox="0 0 300 300" aria-hidden="true">
+      <g transform="translate(150 160)">
+        <rect x="-150" y="-100" width="100" height="140" rx="10" transform="rotate(-18 -100 -30)"/>
+        <rect x="-48" y="-135" width="100" height="140" rx="10" transform="rotate(4 0 -60)"/>
+        <rect x="46" y="-92" width="100" height="140" rx="10" transform="rotate(22 96 -20)"/>
+      </g>
+    </svg>
+    <div class="wrap">
+      <h1 id="hero-title"><span class="sub">Buy/Sell/Trade</span><span class="main">Pokémon Cards</span></h1>
+      <div class="hero-pill"><svg><use href="#leaf"/></svg>Maple Trading Co.</div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="strip">
+      <h2>Pokémon cards for collectors, from a collector.</h2>
+      <a class="handle" href="https://www.instagram.com/mapletrading.co/" target="_blank" rel="noopener">
+        <span class="leaf-badge"><svg><use href="#leaf"/></svg></span>
+        <span>Find us on Instagram<b>@mapletrading.co</b></span>
+      </a>
+    </div>
+
+    <nav class="tiles" aria-label="Quick links">
+      <a class="tile t-buy" href="#featured"><i><svg><use href="#tag"/></svg></i>Buy</a>
+      <a class="tile t-sell" href="#featured"><i><svg><use href="#cash"/></svg></i>Sell</a>
+      <a class="tile t-trade" href="#featured"><i><svg><use href="#swap"/></svg></i>Trade</a>
+      <a class="tile t-ig" href="https://www.instagram.com/mapletrading.co/" target="_blank" rel="noopener"><i><svg><use href="#ig"/></svg></i>Instagram</a>
+    </nav>
+
+    <section class="featured" id="featured" aria-labelledby="feat-title">
+      <h2 class="section-title" id="feat-title">What we do</h2>
+      <div class="rail-wrap">
+        <div class="rail" id="rail" tabindex="0" aria-label="Services, scroll sideways">
+          <a class="card" href="https://www.instagram.com/mapletrading.co/" target="_blank" rel="noopener">
+            <div class="art a1"><svg viewBox="0 0 100 140"><use href="#cardshape"/></svg></div>
+            <div class="body"><h3>Buy cards for your collection</h3><p>See what is in stock on Instagram, then message us to claim a card.</p><span class="badge hot">Message us</span><span class="cat">Buy</span></div>
+          </a>
+          <a class="card" href="https://www.instagram.com/mapletrading.co/" target="_blank" rel="noopener">
+            <div class="art a2"><svg viewBox="0 0 100 140"><use href="#cardshape"/></svg></div>
+            <div class="body"><h3>Sell us your cards</h3><p>Send a photo of what you have and we will tell you what we can offer.</p><span class="badge">Message us</span><span class="cat b">Sell</span></div>
+          </a>
+          <a class="card" href="https://www.instagram.com/mapletrading.co/" target="_blank" rel="noopener">
+            <div class="art a3"><svg viewBox="0 0 100 140"><use href="#cardshape"/></svg></div>
+            <div class="body"><h3>Trade up your binder</h3><p>Tell us what you are chasing and what you can trade away.</p><span class="badge hot">Message us</span><span class="cat">Trade</span></div>
+          </a>
+          <a class="card" href="https://www.instagram.com/mapletrading.co/" target="_blank" rel="noopener">
+            <div class="art a4"><svg viewBox="0 0 24 24" style="height:84px;fill:#fff"><use href="#ig"/></svg></div>
+            <div class="body"><h3>Follow for new listings</h3><p>New cards and updates are posted to our Instagram account first.</p><span class="badge">Follow</span><span class="cat b">Instagram</span></div>
+          </a>
+          <a class="card" href="#follow">
+            <div class="art a5"><svg viewBox="0 0 24 24" style="height:84px;fill:#fff"><use href="#chat"/></svg></div>
+            <div class="body"><h3>Ask us anything</h3><p>Questions about a card, a price or a trade? Send us a direct message.</p><span class="badge hot">Contact</span><span class="cat">Support</span></div>
+          </a>
+        </div>
+        <button class="rail-next" id="railNext" type="button" aria-label="Show more"><svg viewBox="0 0 24 24"><path d="M9 4l8 8-8 8"/></svg></button>
+      </div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div>
+        <h2 class="section-title" id="about-title">About Maple Trading Co.</h2>
+        <p>Maple Trading Co. is an independent shop for Pokémon cards. We buy, sell and trade with collectors and players.</p>
+        <p>Whether you are finishing a set, chasing one favorite card or clearing out a binder, send us a message and we will help you find a fair deal.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="ic" style="background:var(--orange)"><svg style="fill:#23324a"><use href="#ig"/></svg></span><div><b>Find us on Instagram</b><span>Browse recent posts at @mapletrading.co.</span></div></li>
+        <li><span class="ic" style="background:var(--blue)"><svg style="fill:#fff"><use href="#chat"/></svg></span><div><b>Send a direct message</b><span>Tell us if you want to buy, sell or trade, and which cards.</span></div></li>
+        <li><span class="ic" style="background:var(--leaf)"><svg style="fill:#fff"><use href="#swap"/></svg></span><div><b>Agree on the deal</b><span>We confirm the details with you in the chat.</span></div></li>
+      </ol>
+    </section>
+  </div>
+
+  <section class="band follow" id="follow" aria-labelledby="follow-title">
+    <div class="wrap follow-in">
+      <div>
+        <h2 id="follow-title">Follow Maple Trading Co.</h2>
+        <p>New cards, updates and the fastest replies are on Instagram.</p>
+      </div>
+      <div class="follow-actions">
+        <a class="btn primary" href="https://www.instagram.com/mapletrading.co/" target="_blank" rel="noopener"><svg><use href="#ig"/></svg>@mapletrading.co</a>
+        <button class="btn ghost" id="copyBtn" type="button">Copy handle</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <div class="row">
+    <span><strong>Maple Trading Co.</strong> · Pokémon cards, buy / sell / trade</span>
+    <a href="https://www.instagram.com/mapletrading.co/" target="_blank" rel="noopener">instagram.com/mapletrading.co</a>
+  </div>
+  <small>Maple Trading Co. is an independent seller and is not affiliated with, endorsed by or sponsored by Nintendo, Creatures Inc., GAME FREAK inc. or The Pokémon Company. Pokémon and Pokémon character names are trademarks of their respective owners.</small>
+</footer>
+
+<script>
+(function () {
+  var rail = document.getElementById('rail');
+  var next = document.getElementById('railNext');
+  function sync() {
+    next.hidden = rail.scrollWidth - rail.clientWidth - rail.scrollLeft < 8;
+  }
+  next.addEventListener('click', function () {
+    rail.scrollBy({ left: rail.clientWidth * 0.8, behavior: 'smooth' });
+  });
+  rail.addEventListener('scroll', sync, { passive: true });
+  window.addEventListener('resize', sync);
+  sync();
+
+  var btn = document.getElementById('copyBtn');
+  btn.addEventListener('click', function () {
+    var done = function () {
+      btn.textContent = 'Copied';
+      setTimeout(function () { btn.textContent = 'Copy handle'; }, 1600);
+    };
+    try {
+      navigator.clipboard.writeText('@mapletrading.co').then(done, function () {
+        btn.textContent = '@mapletrading.co';
+      });
+    } catch (e) { btn.textContent = '@mapletrading.co'; }
+  });
+})();
+</script>
+
+</body></html>
